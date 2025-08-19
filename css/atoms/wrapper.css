@@ -1,0 +1,6 @@
+.wrapper {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Alínea al inicio en el eje vertical */
+    height: 100dvh;
+}

@@ -1,0 +1,29 @@
+.brand {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Para alinear el logo debajo del texto */
+    width: auto; /* Ajusta según el tamaño de tu contenedor */
+    margin: auto;
+    margin-right: 1rem;
+}
+.brand p {
+    position: absolute;
+    top: -15%;
+    right: 40%;
+    font-size: 0.6rem;
+    font-weight: 550;
+}
+
+@media (max-width: 768px) {
+    .brand p {
+        right: 38%;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand p {
+        right: 27%;
+    }
+}

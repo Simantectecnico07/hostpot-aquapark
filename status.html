@@ -1,0 +1,96 @@
+<html>
+
+<head>
+	<title>Estado | Simantec Hotspot</title>
+	$(if refresh-timeout)
+	<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+	$(endif)
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="expires" content="-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link rel="shortcut icon" href="src/favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="css/styles.css" media="screen">
+</head>
+
+<body class="body--flex" $(if advert-pending=='yes' ) onLoad="openAdvert()" $(endif)>
+	<div class="container">
+		<img class="logo--brand" src="src/imgs/logo.png" alt="Logo">
+
+		<!-- Mensaje de bienvenida -->
+		<h1>¡Diviérte sin límites!</h1>
+		<h2>Ahora ya puedes navegar por Internet</h2>
+
+		<img class="img--illustration" style="width: 200px; height: auto;" src="src/imgs/Mascota_SMT.png" alt="Persona navegando en canoa" />
+
+		<!-- 🔹 FORMULARIO DE REGISTRO -->
+		<div class="form-container" style="margin:20px; padding:15px; border:1px solid #ccc; border-radius:10px;">
+			<h2>Registro de Usuario</h2>
+			<form id="registroForm">
+				<input type="text" name="nombre" placeholder="Nombre y apellido" required /><br><br>
+				<input type="text" name="correo" placeholder="Correo" required /><br><br>
+
+				<select name="ubicacion" required>
+					<option value="">-- Selecciona tu sector --</option>
+					<option value="Quito">Quito Norte</option>
+					<option value="Guayllabamba">Guayllabamba</option>
+					<option value="Quinche">EL Quinche</option>
+					<option value="Checa">Checa</option>
+					<option value="Iguinaro">Iguiñaro</option>
+					<option value="Oyambarillo">Oyambarillo</option>
+					
+				</select><br><br>
+
+				<input type="tel" name="telefono" placeholder="Número de teléfono" required /><br><br>
+
+				<button type="submit">Registrar</button>
+			</form>
+		</div>
+
+		<!-- Botón de cerrar sesión -->
+		<form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+			<h1>¿Buscabas Internet sin límites?</h1>
+			</br>
+			<a class="link--bold" href="https://www.simantec.ec/planfibra">
+				<h2>¡Contrata Simantec ahora!</h2>
+			</a><br>
+
+			<img class="logo--brand" style="width: 20px; height: auto;" src="src/imgs/whats.png" alt="Logo">
+			<a class="link--bold" href="https://wa.me/+593992380840" style="font-size: 28;">0992380840</a><br>
+			
+			<h4>Captura esta pantalla, envíala por whatsapp</h4>
+			<h4>y recibiras un obsequio con tu instalación</h4>
+			<img class="logo--brand" style="width: 50px; height: auto;" src="src/imgs/regalo.gif" alt="Logo">
+			<input class="button button--danger" type="submit" value="Cerrar sesión">
+		</form>
+	</div>
+
+	<!-- 🔹 SCRIPT PARA ENVIAR DATOS -->
+	<script>
+		const form = document.getElementById("registroForm");
+		const scriptURL = "https://script.google.com/macros/s/AKfycbx6Wl1YAt1uXpDNfpAG0dRzqJsaCOwUwIsuczOGarPvwOaUftJmSv26_899aleFFaCFDA/exec";
+
+		form.addEventListener("submit", e => {
+			e.preventDefault(); // Evita recarga
+
+			const formData = new FormData(form);
+
+			fetch(scriptURL, {
+				method: "POST",
+				body: formData
+			})
+			.then(response => {
+				alert("✅ Datos enviados correctamente");
+				// Opcional: redirigir después de enviar
+				// window.location.href = "login2.html";
+				form.reset();
+			})
+			.catch(error => {
+				alert("❌ Error al enviar los datos");
+				console.error(error);
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 25px auto;
+    font-size: 1rem;
+    width: 100%;
+    box-shadow: 0 0 15px var(--shadow-color);
+    text-align: left;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.table thead tr {
+    background-color: var(--primary-color);
+    color: var(--slate-50);
+    text-align: left;
+    font-weight: bold;
+}
+
+.table th,
+.table td {
+    width: 50%;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--slate-200);
+}
+
+.table tbody tr {
+    background-color: var(--slate-100);
+    border-bottom: 1px solid var(--slate-200);
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: var(--slate-50);
+}
+
+.table tbody tr:hover {
+    background-color: var(--slate-200);
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.table td:first-child,
+.table th:first-child  {
+    font-weight: 600; /* Cambia el peso de la fuente de la primera columna */
+    text-align: right;
+}
+
+.table td:nth-child(2), /* Segunda columna */
+.table th:nth-child(2) {
+    text-align: left; /* Alinear la segunda columna a la izquierda */
+}

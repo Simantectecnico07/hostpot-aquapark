@@ -1,0 +1,16 @@
+.input {
+    margin: 0.5rem 0;
+    text-align: center;
+    border-bottom: 2px solid var(--gray);
+}
+
+.input:focus {
+    background-color: var(--white);
+    border: 1px solid var(--primary-color);
+    outline: none;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}

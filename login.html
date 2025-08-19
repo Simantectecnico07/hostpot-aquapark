@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Iniciar sesión | Simantec Hotspot</title>
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />	
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link rel="shortcut icon" href="src/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="css/styles.css" media="screen">
+</head>
+<body>
+	$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	<script type="text/javascript" src="md5.js"></script>
+	<script type="text/javascript">
+		function doLogin() {
+			document.sendin.username.value = document.login.username.value;
+			document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+			document.sendin.submit();
+			return false;
+		}
+	</script>
+	$(endif)
+<div class="wrapper">
+<div class="container">
+<form class="vertical-form" name="login" action="$(link-login-only)" method="post" background="#A03472"
+	$(if chap-id) onSubmit="return doLogin()" $(endif)>
+	<input type="hidden" name="dst" value="$(link-status)" />
+	<input type="hidden" name="popup" value="true" />
+	<img class="logo--brand" src="src/imgs/logo.png" alt="Logo">
+	<h4>esta conectado por</h4>
+	<img class="logo--brand" style="width: 250px; height: auto;" src="src/imgs/simantec.png" alt="Titulosmt">
+    <!-- <div id="userdiv"> </div> -->
+    <legend>
+    <h1>¡Espera un momento!</h1>
+    </legend>
+	<h3>Presiona el botón para acceder a Internet</h3>
+	<svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 6 24 12" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M6 9l6 6 6-6"/>
+	</svg>
+	<a class="button button--primary button--principal" title="Internet sin límites" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">¡Navegar ahora!</a>
+	<br>
+	<div class="brand">
+		<h4>¿Quieres contratar un servicio de internet?</h4>
+		<h4>Simantec es tu mejor opción</h4>
+		<br><h3><img class="logo--brand" style="width: 20px; height: auto;" src="src/imgs/whats.png" alt="Logo"> 0992380840</h3>
+		<h4>Captura esta pantalla, envíala por whatsapp</h4>
+		<h4>y recibiras un obsequio con tu instalación</h4>
+		<img class="logo--brand" style="width: 50px; height: auto;" src="src/imgs/regalo.gif" alt="Logo">
+	</div>
+</form>
+</div>
+</div>
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+</script>
+</body>
+</html>

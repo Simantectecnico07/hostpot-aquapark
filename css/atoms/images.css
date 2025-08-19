@@ -1,0 +1,30 @@
+.logo--brand {
+    width: 380px;
+}
+
+@media (max-width: 768px) {
+    .logo--brand {
+        width: 300px;
+    }
+    .img--illustration {
+        width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo--brand {
+        width: 270px;
+        margin-top: 0.5rem;
+    }
+    .img--illustration {
+        width: 100%;
+    }
+}
+
+.logo--simantec {
+    width: 140px;
+}
+
+.img--illustration {
+    width: 90%;
+}

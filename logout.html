@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>mikrotik hotspot > logout</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link rel="shortcut icon" href="src/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="css/styles.css" media="screen">
+</head>
+
+<body>
+<script language="JavaScript">
+    function openLogin() {
+	if (window.name != 'hotspot_logout') return true;
+	open('$(link-login)', '_blank', '');
+	window.close();
+	return false;
+    }
+</script>
+<div class="wrapper">
+<div class="container">
+	<img class="logo--brand" src="src/imgs/logo.png" alt="Logo">
+<h1>¡No te vayas!</h1>
+<h2>Has cerrado tu sesión</h2>
+<table class="table">  
+<tr><td>Usuario:</td><td>$(username)</td></tr>
+<tr><td>Dirección IP:</td><td>$(ip)</td></tr>
+<tr><td>Dirección MAC:</td><td>$(mac)</td></tr>
+<tr><td>Tiempo de sesión:</td><td>$(uptime)</td></tr>
+$(if session-time-left)
+<tr><td>Tiempo restante:</td><td>$(session-time-left)</td></tr>
+$(endif)
+<tr><td>Bytes de subida / descarga:</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
+</table>
+<form action="$(link-login)" name="login" onSubmit="return openLogin()">
+<input class="button button--primary button--mt-0" type="submit" value="Iniciar sesión de nuevo">
+</form>
+</div>
+</div>
+</body>
+</html>
